@@ -1,27 +1,48 @@
-[user]
-	name = Stefan Kasberger
-	email = stefan.kasberger@alpine-geckos.at
+# inspired by https://github.com/mitsuhiko/dotfiles/
 
-[alias]
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all 
-    st = status	
-[credential]
-	helper = cache --timeout=3600
+
+[user]
+  name = stefan
+  email = dev@2904.cc
 [core]
-	excludesfile = /home/cheeseman/.gitignore_global
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+  excludesfile = ~/.gitignore_global
+  editor = lime
 [color]
-    ui = auto
+  ui = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = red
+  remote = green
+  local = yellow
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  cp = cherry-pick
+  cps = cherry-pick -s
+  slog = log --pretty=oneline --abbrev-commit
+  glog = log --graph --decorate --pretty=oneline --abbrev-commit
+  lol = glog
+  gloga = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lola = gloga
+  unci = reset HEAD^
+  uncommit = reset HEAD^
+  ls = ls-files
+  out = log HEAD..origin
+  killbranches = !git branch | grep -v master | xargs git branch -d 2> /dev/null
+  gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
