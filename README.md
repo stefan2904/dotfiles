@@ -7,7 +7,24 @@ Here, my public dotfiles.  *Follow the white rabbit.*
 ```bash
 cd ~
 git clone https://github.com/stefan2904/dotfiles.git .dotfiles
+cd .dotfiles
 stow <module>
+```
+
+
+### Activate module
+
+```bash
+cd .dotfiles
+stow <module>
+```
+
+
+### Deactivate module
+
+```bash
+cd .dotfiles
+stow -D <module>
 ```
 
 
