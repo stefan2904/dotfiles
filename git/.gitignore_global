@@ -1,0 +1,11 @@
+# vim-swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+
+# vim-temporary
+.netrwhist
+*~
+
+# more at https://github.com/github/gitignore/tree/master/Global
