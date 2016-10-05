@@ -27,14 +27,18 @@ Plugin 'gmarik/Vundle.vim'
 """"""" Navigation & Look
 " file navigation based on name
 Plugin 'kien/ctrlp.vim'
+
 " checkout out: https://github.com/Lokaltog/vim-easymotion
 " Plugin 'Lokaltog/vim-easymotion'
 " status bar
 Plugin 'bling/vim-airline'
+
 " display git diff, as sign for added, changed, removed lines
 Plugin 'airblade/vim-gitgutter'
+
 " better highlighting for too long lines, instead of colorcolumn
 Plugin 'gagoar/SmartColumnColors'
+
 " highligh targets for f, F, t, T
 Plugin 'unblevable/quick-scope'
 " TODO: check out movement advice at https://github.com/unblevable/quick-scope
@@ -58,6 +62,7 @@ Plugin 'joom/latex-unicoder.vim'
 """"""" Programming related
 " syntax checkers
 Plugin 'scrooloose/syntastic'
+
 " auto completion
 if v:version > 703 || (v:version == 703 && has('patch584'))
     Plugin 'Valloric/YouCompleteMe'
@@ -67,27 +72,33 @@ else
     " otherwise fallback to supertab
     Plugin 'ervandew/supertab'
 endif
+
 " show functions/methods/classes etc.
 Plugin 'majutsushi/tagbar'
+
 " commenting code
 Plugin 'scrooloose/nerdcommenter'
+
 " Plugin 'tpope/vim-commentary'
 " auto delimiter insertion
 Plugin 'Raimondi/delimitMate'
-"
 "Plugin 'tpope/vim-surround'
 
 """"" language support
 Plugin 'vim-latex/vim-latex'
 "Plugin 'voithos/vim-python-matchit'
+
 "python mode combines several useful python plugins
-" Plugin 'klen/python-mode'
-Plugin 'dag/vim-fish'
-"Plugin 'derekwyatt/vim-scala'
+if has('nvim')
+    Plugin 'klen/python-mode'
+endif
+
+" Plugin 'dag/vim-fish'
+" Plugin 'derekwyatt/vim-scala'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-scripts/yaml.vim'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 
 " make vim a usable rust ide
@@ -111,36 +122,50 @@ endif
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " we need this when using fish, or otherwise some plugins are fubar
-set shell=/bin/bash
+set shell=/bin/zsh
+
 " disable vi compat
 set nocompatible
+
 " we want line numbers
 set number
+
 " Sets how many lines of history VIM has to remember
 set history=700
+
 " Set to auto read when a file is changed from the outside
 set autoread
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 " TODO: consider alternative leader
 let mapleader = ";"
 let g:mapleader = ";"
+
 " Ignore case when searching
 set ignorecase
+
 " When searching try to be smart about cases
 set smartcase
+
 " Highlight search results
 set hlsearch
+
 " Makes search act like search in modern browsers
 set incsearch
+
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
+
 " For regular expressions turn magic on
 set magic
+
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -148,6 +173,7 @@ set t_vb=
 set tm=500
 
 set title
+
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set wildignore+=*_build/*
 set wildignore+=*build/*
@@ -344,7 +370,7 @@ nmap <F8> :TagbarToggle<CR>
 
 """" python-mode configuration
 " disable python folding
-"let g:pymode_folding = 0
+let g:pymode_folding = 0
 " Disable pylint checking every save
 "let g:pymode_lint_write = 0
 " Load run code plugin
