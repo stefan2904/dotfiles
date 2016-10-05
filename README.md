@@ -7,8 +7,6 @@ Here, my public dotfiles.  *Follow the white rabbit.*
 ```bash
 cd ~
 git clone --recursive https://github.com/stefan2904/dotfiles.git .dotfiles
-cd .dotfiles
-stow <module>
 ```
 
 
