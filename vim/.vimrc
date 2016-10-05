@@ -65,7 +65,9 @@ Plugin 'scrooloose/syntastic'
 
 " auto completion
 if v:version > 703 || (v:version == 703 && has('patch584'))
-    Plugin 'Valloric/YouCompleteMe'
+    if has('python')
+        Plugin 'Valloric/YouCompleteMe'
+    endif
     " Plugin 'Shougo/neocomplete.vim'
     " Plugin 'davidhalter/jedi-vim'
 else
@@ -89,7 +91,7 @@ Plugin 'vim-latex/vim-latex'
 "Plugin 'voithos/vim-python-matchit'
 
 "python mode combines several useful python plugins
-if has('nvim')
+if has('python')
     Plugin 'klen/python-mode'
 endif
 
