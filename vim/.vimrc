@@ -202,6 +202,7 @@ if has("gui_running")
 else
     "" colorscheme darkdot
     colorscheme monokai
+    " colorscheme molokai
 endif
 
 if has("nvim") || has("gui_running")
@@ -214,6 +215,7 @@ endif
 if has("nvim")
     " colorscheme wombat256mod " requires xterm-256color
     colorscheme monokai
+    " colorscheme molokai
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
