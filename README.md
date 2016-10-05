@@ -28,6 +28,11 @@ stow -D <module>
 ```
 
 
+### Vundle?
+
+[Vundle](https://github.com/VundleVim/Vundle.vim) is short for *Vim bundle* and is a Vim plugin manager. You need to [install the plugins configured in your `.vimrc`](https://github.com/VundleVim/Vundle.vim/blob/v0.10.2/doc/vundle.txt#L234-L254) by running `:PluginInstall` in vim.
+
+
 ### Stow?
 
 `GNU Stow is a symlink farm manager which ...` well, whatever. Just install it using `apt-get install stow`, use it as described above, and [RTFM](https://www.gnu.org/software/stow/) later.
