@@ -200,7 +200,8 @@ if has("gui_running")
     set guioptions-=e
     " highlight ColorColumn guibg=lightgrey
 else
-    colorscheme darkdot
+    "" colorscheme darkdot
+    colorscheme monokai
 endif
 
 if has("nvim") || has("gui_running")
@@ -211,7 +212,8 @@ if has("nvim") || has("gui_running")
 endif
 
 if has("nvim")
-    colorscheme wombat256mod
+    " colorscheme wombat256mod " requires xterm-256color
+    colorscheme monokai
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
