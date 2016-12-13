@@ -1,6 +1,6 @@
 # i3 dotfiles
 
-[https://i3wm.org/](i3) is a tiling window manager.
+[i3](https://i3wm.org/) is a tiling window manager.
 
 
 ## Requirements
