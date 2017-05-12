@@ -2,6 +2,7 @@
 str_state="state"
 str_percentage="percentage"
 str_empty="'time to empty'"
+str_full="'time to full'"
 command1="upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "
 command2=" | awk '{print \$2}'"
 command3=" | awk '{print \$4 \$5}'"
@@ -29,12 +30,13 @@ fi
 
 
 if [ $state = "charging" ] || [ $state = "fully-charged" ]; then
-	icon='  ';
+	icon='  '
+    timeleft=$(eval $command1$str_full$command3)
 elif [ $state = "discharging" ]; then
 	timeleft=$(eval $command1$str_empty$command3)
 fi
 
-echo "<span background='#002b36' $foreground $icon $percentage% $timeleft</span>";
+echo "<span background='#002b36' $foreground $icon $percentage% $timeleft </span>";
 
 if [ $percentage -lt 5 ]; then
 	exit 33;

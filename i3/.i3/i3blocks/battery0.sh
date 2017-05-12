@@ -2,6 +2,7 @@
 str_state="state"
 str_percentage="percentage"
 str_empty="'time to empty'"
+str_full="'time to full'"
 command1="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "
 command2=" | awk '{print \$2}'"
 command3=" | awk '{print \$4 \$5}'"
@@ -11,31 +12,32 @@ state=$(eval $command1$str_state$command2)
 
 
 if (( $percentage<16 )); then
-	foreground='foreground="#dc322f">'
-	icon='  ' ;
+    foreground='foreground="#dc322f">'
+    icon='  ' ;
 elif (($percentage<39)); then
-	foreground='foreground="#cb4b16">'
-	icon='  ' ;
+    foreground='foreground="#cb4b16">'
+    icon='  ' ;
 elif (($percentage<62)); then
-	foreground='foreground="#b58900">'
-	icon='  ' ;
+    foreground='foreground="#b58900">'
+    icon='  ' ;
 elif (($percentage<84)); then
-	foreground='foreground="#859900">'
-	icon='  ' ;
+    foreground='foreground="#859900">'
+    icon='  ' ;
 else
-	foreground='foreground="#00A86D">'
-	icon='  ' ;
+    foreground='foreground="#00A86D">'
+    icon='  ' ;
 fi
 
 
 if [ $state = "charging" ] || [ $state = "fully-charged" ]; then
-	icon='  ';
+    icon='  '
+    timeleft=$(eval $command1$str_full$command3)
 elif [ $state = "discharging" ]; then
-	timeleft=$(eval $command1$str_empty$command3)
+    timeleft=$(eval $command1$str_empty$command3)
 fi
 
-echo "<span background='#002b36' $foreground $icon $percentage% $timeleft</span>";
+echo "<span background='#002b36' $foreground $icon $percentage% $timeleft </span>";
 
 if [ $percentage -lt 5 ]; then
-	exit 33;
+    exit 33;
 fi
