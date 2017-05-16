@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
 
 # This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ fi
 
 PFX="<span background=\"#021215\">"
 
-if [ $INTERFACE == "eno1" ]; then
+if [[ $INTERFACE == "eth0" ]]; then
 	ICON=
 	ESSID=""
 	QUALITY="$(cat /sys/class/net/$INTERFACE/QUALITY 2> /dev/null)"
