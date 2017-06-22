@@ -12,32 +12,32 @@ state=$(eval $command1$str_state$command2)
 
 
 if (( $percentage<16 )); then
-	foreground='foreground="#dc322f">'
-	icon='  ' ;
+    foreground='foreground="#dc322f">'
+    icon=' &#62016; ' ;
 elif (($percentage<39)); then
-	foreground='foreground="#cb4b16">'
-	icon='  ' ;
+    foreground='foreground="#cb4b16">'
+    icon=' &#62016; ' ;
 elif (($percentage<62)); then
-	foreground='foreground="#b58900">'
-	icon='  ' ;
+    foreground='foreground="#b58900">'
+    icon=' &#62016; ' ;
 elif (($percentage<84)); then
-	foreground='foreground="#859900">'
-	icon='  ' ;
+    foreground='foreground="#859900">'
+    icon=' &#62016; ' ;
 else
-	foreground='foreground="#00A86D">'
-	icon='  ' ;
+    foreground='foreground="#00A86D">'
+    icon=' &#62016; ' ;
 fi
 
 
 if [ $state = "charging" ] || [ $state = "fully-charged" ]; then
-	icon='  '
+    icon=' &#61926; '
     timeleft=$(eval $command1$str_full$command3)
 elif [ $state = "discharging" ]; then
-	timeleft=$(eval $command1$str_empty$command3)
+    timeleft=$(eval $command1$str_empty$command3)
 fi
 
-echo "<span background='#002b36' $foreground $icon $percentage% $timeleft </span>";
+echo "<span font='FontAwesome' background='#002b36' $foreground $icon $percentage% $timeleft </span>";
 
 if [ $percentage -lt 5 ]; then
-	exit 33;
+    exit 33;
 fi
