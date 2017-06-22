@@ -2,7 +2,7 @@
 # inspired by https://github.com/mitsuhiko/dotfiles/ et al.
 
 [user]
-	name = stefan
+	name = Stefan
 	email = dev+git@2904.cc
 	signingkey = EF55302141210EA0
 
