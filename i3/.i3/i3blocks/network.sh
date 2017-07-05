@@ -40,7 +40,20 @@ fi
 state="$(cat /sys/class/net/$INTERFACE/operstate)"
 
 if [ "$state" != "up" ]; then
-	echo "✖"
+	vpncommand1="nmcli -p | grep 'VPN connection' | cut -d ' ' -f 1";
+	vpnstate1=$(eval $vpncommand1);
+	if [ ! -z "$vpnstate1" ]; then
+	    echo "VPN: $vpnstate1";
+	else
+		vpncommand2="nmcli -p | grep 'tun0'";
+		vpnstate2=$(eval $vpncommand2);
+		if [ ! -z "$vpnstate2" ]; then
+		    echo "VPN";
+		else
+			echo "✖";
+		fi
+	fi
+
 	echo "✖"
 	echo "#dc322f"
 	exit 0
