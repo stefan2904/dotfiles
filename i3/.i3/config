@@ -266,6 +266,8 @@ bar {
 for_window [class="^Pidgin$" window_role="^conversation$"] resize grow shrink 30 px or 30 ppt;
 for_window [class="^Pidgin$" window_role="^buddy_list$"] resize shrink width 30 px or 30 ppt; move right
 
+# https://github.com/pdfpc/pdfpc#windows-do-not-appear-on-the-correct-screen
+for_window [ title="^pdfpc - present" ] border none floating enable
 
 # Floating Apps
 # for_window [class="Keepassx"] floating enable
