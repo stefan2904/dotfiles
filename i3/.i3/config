@@ -69,8 +69,9 @@ bindsym $mod+Shift+q kill
 # use rofi instead of dmenu
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+s exec rofi -show ssh
-bindsym $mod+p exec gopass completion dmenu
 bindsym Mod1+Tab exec rofi -show window
+# bindsym $mod+p exec gopass completion dmenu
+bindsym $mod+p exec gopass ls --flat | rofi -dmenu | xargs --no-run-if-empty gopass show -c
 
 # change focus
 bindsym $mod+j focus left
