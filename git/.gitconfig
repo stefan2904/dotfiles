@@ -76,6 +76,8 @@
   gr2 = log --graph --decorate --pretty=oneline --abbrev-commit
   gra = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
+  diffc = diff --word-diff-regex=.
+
 # TODO: difftool & mergetool
 
 [push]
