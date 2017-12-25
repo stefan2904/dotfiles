@@ -286,6 +286,7 @@ exec $HOME/.i3/auto-start-for-i3
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start
+exec --no-startup-id nextcloud --logdir /var/log/nextcloud
 exec --no-startup-id parcellite
 exec guake
 
