@@ -14,7 +14,8 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# text rendering and scalability on retina/hidp displays (thanks to pango).
+
 #font pango:DejaVu Sans Mono 10
 font pango:Terminus 12
 #set $ft terminus12
@@ -127,10 +128,10 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace 1: chat
 bindsym $mod+2 workspace 2: web
-bindsym $mod+3 workspace 3: work
+bindsym $mod+3 workspace 3: mail
 bindsym $mod+4 workspace 4: work
 bindsym $mod+5 workspace 5: work
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace 6: work
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9: tmp
@@ -139,14 +140,19 @@ bindsym $mod+0 workspace 10: music
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: chat
 bindsym $mod+Shift+2 move container to workspace 2: web
-bindsym $mod+Shift+3 move container to workspace 3: work
+bindsym $mod+Shift+3 move container to workspace 3: mail
 bindsym $mod+Shift+4 move container to workspace 4: work
 bindsym $mod+Shift+5 move container to workspace 5: work
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace 6: work
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9: tmp
 bindsym $mod+Shift+0 move container to workspace 10: music
+
+# Automatically putting workspaces on specific screens
+workspace "1: chat" output eDP-1
+workspace "2: web" output DP-2-2
+workspace "3: mail" output DP-2-2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -267,6 +273,16 @@ bar {
 for_window [class="^Pidgin$" window_role="^conversation$"] resize grow shrink 30 px or 30 ppt;
 for_window [class="^Pidgin$" window_role="^buddy_list$"] resize shrink width 30 px or 30 ppt; move right
 
+# use `xprop` -> WM_CLASS(STRING)
+assign [class="^quassel$"] → 1: chat
+assign [class="^Signal$"] → 1: chat
+assign [class="^Pidgin$"] → 1: chat
+assign [class="^Firefox$"] → 2: web
+assign [class="^Thunderbird$"] → 3: mail
+assign [class="Spotify"] → 10: music
+
+
+
 # https://github.com/pdfpc/pdfpc#windows-do-not-appear-on-the-correct-screen
 for_window [ title="^pdfpc - present" ] border none floating enable
 
@@ -276,13 +292,13 @@ for_window [class="Guake"] floating enable
 
 
 # Startup Wallpaper
-exec --no-startup-id feh --bg-scale /home/stefan/Pictures/wallpapers/cyber_wall_by_ryce92-d5mtdoi.jpg
+# exec --no-startup-id feh --bg-scale /home/stefan/Pictures/wallpapers/cyber_wall_by_ryce92-d5mtdoi.jpg
 
 # Startup Redshift
-exec --no-startup-id redshift
+# exec --no-startup-id redshift
 
 # More Startup
-exec $HOME/.i3/auto-start-for-i3
+exec --no-startup-id i3-msg 'exec $HOME/.i3/auto-start-for-i3'
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start
@@ -292,10 +308,16 @@ exec --no-startup-id parcellite
 exec guake
 
 # Startup Automatic Screen Config at home
-exec --no-startup-id sleep 3 && sh /etc/network/if-up.d/xrandr
+# exec --no-startup-id sleep 3 && sh /etc/network/if-up.d/xrandr
 
 # Startup Power Management
-exec --no-startup-id sleep 3 && xfce4-power-manager
+# exec --no-startup-id sleep 3 && xfce4-power-manager
 
 
 
+# scaling display for 4k
+# https://chrispatterson.net/blog/i3/2016/09/16/i3-scaling-for-4k.html
+
+# exec /usr/bin/gnome-settings-daemon
+# exec /usr/lib/gnome-settings-daemon
+# exec $HOME/Documents/Screenlayouts/laptop-max_screen-half.sh
