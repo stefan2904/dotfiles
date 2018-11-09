@@ -13,72 +13,72 @@
     # editor = nvim
 
 [color]
-  ui = auto
+	ui = auto
 	diff = auto
 
 [color "branch"]
-  current = red
-  remote = green
-  local = yellow
+	current = red
+	remote = green
+	local = yellow
 
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
 
 [alias]
-  # git-svn stuff
-  svnpush = !echo "% git svn dcommit" && git svn dcommit
-  svnpull = !echo "% git svn fetch" && git svn fetch && echo "% git svn rebase" && git svn rebase
-  svncommit = commit -s -m
+	# git-svn stuff
+	svnpush = !echo "% git svn dcommit" && git svn dcommit
+	svnpull = !echo "% git svn fetch" && git svn fetch && echo "% git svn rebase" && git svn rebase
+	svncommit = commit -s -m
 
-  # lazy pull'n'push
-  pp = !echo "% git pull --rebase" && git pull --rebase && echo "% git push" && git push
+	# lazy pull'n'push
+	pp = !echo "% git pull --rebase" && git pull --rebase && echo "% git push" && git push
 
-  st = status
-  ci = commit
+	st = status
+	ci = commit
 
-  # GPG sign commit
-  commits = commit -S
+	# GPG sign commit
+	commits = commit -S
 
-  # Add Signed-off-by line (usefull for shared account w/ git-svn)
-  scommit = commit -s
-  smcommit = commit -s -m
-  mscommit = commit -s -m
+	# Add Signed-off-by line (usefull for shared account w/ git-svn)
+	scommit = commit -s
+	smcommit = commit -s -m
+	mscommit = commit -s -m
 
-  co = checkout
-  br = branch
-  cp = cherry-pick
-  cps = cherry-pick -s
+	co = checkout
+	br = branch
+	cp = cherry-pick
+	cps = cherry-pick -s
 
-  logs = log --show-signature
+	logs = log --show-signature
 
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  slog = log --pretty=oneline --abbrev-commit
-  glog = log --graph --decorate --pretty=oneline --abbrev-commit
-  gloga = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	slog = log --pretty=oneline --abbrev-commit
+	glog = log --graph --decorate --pretty=oneline --abbrev-commit
+	gloga = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
-  unci = reset HEAD^
-  uncommit = reset HEAD^
+	unci = reset HEAD^
+	uncommit = reset HEAD^
 
-  ls = ls-files
-  out = log HEAD..origin
-  killbranches = !git branch | grep -v master | xargs git branch -d 2> /dev/null
+	ls = ls-files
+	out = log HEAD..origin
+	killbranches = !git branch | grep -v master | xargs git branch -d 2> /dev/null
 
-  gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
-  gr2 = log --graph --decorate --pretty=oneline --abbrev-commit
-  gra = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+	gr2 = log --graph --decorate --pretty=oneline --abbrev-commit
+	gra = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
-  diffc = diff --word-diff-regex=.
+	diffc = diff --word-diff-regex=.
 
-# TODO: difftool & mergetool
+	# TODO: difftool & mergetool
 
 [push]
 	default = tracking
@@ -101,6 +101,5 @@
 
 [diff "ansible-vault"]
 	textconv = ansible-vault view
-  # Do not cache the vault contents
-  cachetextconv = false
-  
+	# Do not cache the vault contents
+	cachetextconv = false
