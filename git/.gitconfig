@@ -99,3 +99,8 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+  # Do not cache the vault contents
+  cachetextconv = false
+  
