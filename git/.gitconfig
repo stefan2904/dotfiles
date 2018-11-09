@@ -39,7 +39,7 @@
   svncommit = commit -s -m
 
   # lazy pull'n'push
-  pp = !echo "% git pull --rebase" && git pull && echo "% git push" && git push
+  pp = !echo "% git pull --rebase" && git pull --rebase && echo "% git push" && git push
 
   st = status
   ci = commit
