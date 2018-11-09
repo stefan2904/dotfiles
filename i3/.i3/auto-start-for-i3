@@ -67,9 +67,9 @@ StartProg()
       if xdotool search --onlyvisible --pid $mypid; then
           return 0
       fi
-   sleep 1
+    sleep 1
     done
-    xmessage "Error on executing: $@" &
+    xmessage "Error on executing: $@ (pid: $mypid)" &
 }
 
 i3-msg split h
@@ -82,7 +82,8 @@ sleep 2
 #move left
 i3-msg resize grow left 50 px or 50 ppt
 
-StartProg pidgin
+#StartProg pidgin
+StartProg signal-desktop
 sleep 2
 #i3-msg resize shrink left 40 px or 40 ppt
 
